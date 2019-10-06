@@ -6,11 +6,11 @@ package data_structure;
  * @author Forest
  *
  */
-public class Node<E> {
+public class SNode<E> {
 	private E element;
-	private Node next;
+	private SNode next;
 
-	public Node(E element) {
+	public SNode(E element) {
 		this.element = element;
 		this.next = null;
 	}
@@ -19,7 +19,7 @@ public class Node<E> {
 		this.element = element;
 	}
 
-	public void setNext(Node next) {
+	public void setNext(SNode next) {
 		this.next = next;
 	}
 
@@ -27,7 +27,7 @@ public class Node<E> {
 		return element;
 	}
 
-	public Node getNext() {
+	public SNode getNext() {
 		return next;
 	}
 

@@ -1,8 +1,8 @@
 package data_structure;
 
-public class SLinkedList {
-	private Node head;
-	private Node tail;
+public class SLinkedList<E> {
+	private SNode<E> head;
+	private SNode<E> tail;
 	private long size;
 
 	public SLinkedList() {
@@ -20,31 +20,31 @@ public class SLinkedList {
 		return size == 0;
 	}
 
-	public Node first() {
+	public SNode first() {
 		return tail;
 	}
 
-	public Node last() {
+	public SNode last() {
 		return head;
 	}
 
-	public Node prev(Node node) {
+	public SNode prev(SNode sNode) {
 		return null;
 	}
 
-	public Node next(Node node) {
+	public SNode next(SNode sNode) {
 		return null;
 	}
 
-	public void set(Node node, String element) {
+	public void set(SNode sNode, String element) {
 
 	}
 
-	public void addBefore(Node node, String element) {
+	public void addBefore(SNode sNode, String element) {
 
 	}
 
-	public void addAfter(Node currentNode, Node newNode) {
+	public void addAfter(SNode currentNode, SNode newNode) {
 		if (currentNode == tail) {
 			tail = newNode;
 		}
@@ -53,41 +53,41 @@ public class SLinkedList {
 		size++;
 	}
 
-	public void addFirst(Node node) {
+	public void addFirst(SNode sNode) {
 		if (tail == null) {
 			// first time add element
-			tail = node;
+			tail = sNode;
 		}
-		node.setNext(head);
-		head = node;
+		sNode.setNext(head);
+		head = sNode;
 		size++;
 	}
 
-	public void addLast(Node node) {
+	public void addLast(SNode sNode) {
 		if (head == null) {
 			// first time add element
-			head = node;
+			head = sNode;
 		}
-		node.setNext(null);
-		tail.setNext(node);
-		tail = node;
+		sNode.setNext(null);
+		tail.setNext(sNode);
+		tail = sNode;
 		size++;
 	}
 
-	public void remove(Node node) {
+	public void remove(SNode sNode) {
 		if (size == 0) {
 			throw new IndexOutOfBoundsException("Remove element from an empty list.");
 		}
 		System.out.println("head:" + head.getElement());
-		Node pointer = head;
-		if (pointer.getElement() == node.getElement()) {
+		SNode pointer = head;
+		if (pointer.getElement() == sNode.getElement()) {
 			head = head.getNext();
 			size--;
 			return;
 		}
-		//System.out.println("log:" + pointer.getNext().getElement() + " ");
+		// System.out.println("log:" + pointer.getNext().getElement() + " ");
 		while (pointer.getNext() != null) {
-			if (pointer.getNext().getElement() == node.getElement()) {
+			if (pointer.getNext().getElement() == sNode.getElement()) {
 				pointer.setNext(pointer.getNext().getNext());
 
 				size--;
@@ -109,7 +109,7 @@ public class SLinkedList {
 			return;
 		}
 		System.out.print(head.getElement());
-		Node pointer = head;
+		SNode pointer = head;
 		while (pointer.getNext() != null) {
 			System.out.print(", " + pointer.getNext().getElement());
 			pointer = pointer.getNext();
