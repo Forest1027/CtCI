@@ -1,4 +1,4 @@
-package data_structure;
+package data_structure.list;
 
 /**
  * Node of Singly Linked List

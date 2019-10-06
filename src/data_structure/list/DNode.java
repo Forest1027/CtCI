@@ -1,4 +1,4 @@
-package data_structure;
+package data_structure.list;
 
 public class DNode<E> {
 	private E element;

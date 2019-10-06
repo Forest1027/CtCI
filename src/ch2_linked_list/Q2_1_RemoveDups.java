@@ -2,8 +2,8 @@ package ch2_linked_list;
 
 import java.util.HashMap;
 
-import data_structure.SNode;
-import data_structure.SLinkedList;
+import data_structure.list.SLinkedList;
+import data_structure.list.SNode;
 
 /**
  * Write code to remove duplicates from an unsorted linked list.
