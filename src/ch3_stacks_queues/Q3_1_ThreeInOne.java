@@ -127,3 +127,18 @@ class FixedStack<E> {
 		return s;
 	}
 }
+
+/**
+ * A second approach is to allow the stack blocks to be flexible in size. When
+ * one stack exceeds its initial capacity, we grow the allowable capacity and
+ * shift elements as necessary. We will also design our array to be circular,
+ * such that the final stack may start at the end of the array and wrap around
+ * to the beginning.
+ * 
+ * @author Forest
+ *
+ * @param <E>
+ */
+class FlexibleStack<E> {
+
+}
