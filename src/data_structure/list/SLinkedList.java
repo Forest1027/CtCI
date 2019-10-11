@@ -1,5 +1,7 @@
 package data_structure.list;
 
+import java.util.List;
+
 public class SLinkedList<E> {
 	private SNode<E> head;
 	private SNode<E> tail;
@@ -67,11 +69,18 @@ public class SLinkedList<E> {
 		if (head == null) {
 			// first time add element
 			head = sNode;
+			tail = sNode;
 		}
 		sNode.setNext(null);
 		tail.setNext(sNode);
 		tail = sNode;
 		size++;
+	}
+
+	public void addList(List<E> list) {
+		for (E e : list) {
+			this.addLast(new SNode(e));
+		}
 	}
 
 	public void remove(SNode sNode) {
