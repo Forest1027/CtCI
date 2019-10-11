@@ -16,28 +16,53 @@ import data_structure.list.SNode;
  */
 public class Q2_3_Delete_Middle_Node {
 	public static void main(String[] args) {
-		String[] arr = {"a","b","c","d","e","f"};
+		String[] arr = { "a", "b", "c", "d", "e", "f" };
 		List<String> list = Arrays.asList(arr);
 		SLinkedList<String> nodeList = new SLinkedList<String>();
 		nodeList.addList(list);
 		nodeList.printList();
 		deleteMiddleNode(nodeList, "c");
 		nodeList.printList();
-		
+
 	}
-	public static <E> void deleteMiddleNode(SLinkedList<E> list,E val) {
+
+	/**
+	 * My solution, didn't realize only given the access to the node needs to be
+	 * deleted, no access to head node
+	 * 
+	 * @param list
+	 * @param val
+	 */
+	public static <E> void deleteMiddleNode(SLinkedList<E> list, E val) {
 		SNode head = list.last();
 		SNode tail = list.first();
-		if(head.getElement().equals(val)||tail.getElement().equals(val)) {
+		if (head.getElement().equals(val) || tail.getElement().equals(val)) {
 			return;
 		}
 		SNode current = head;
-		while(current.getNext()!=null) {
+		while (current.getNext() != null) {
 			SNode prev = current;
-			current=current.getNext();
-			if(val.equals(current.getElement())) {
+			current = current.getNext();
+			if (val.equals(current.getElement())) {
 				prev.setNext(current.getNext());
 			}
 		}
+	}
+
+	/**
+	 * right solution
+	 * 
+	 * @param node
+	 * @return
+	 */
+	public static <E> boolean deleteMiddleNode(SNode node) {
+		if (node == null || node.getNext() == null) {
+			return false;
+		}
+		// copy the content of the next node to the node we have access to
+		SNode next = node.getNext();
+		node.setElement(next.getElement());
+		node.setNext(next.getNext());
+		return true;
 	}
 }
