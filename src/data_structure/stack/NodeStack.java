@@ -26,7 +26,7 @@ public class NodeStack<E> implements Stack<E> {
 	public E top() throws EmptyStackException {
 		// TODO Auto-generated method stub
 		if (isEmpty()) {
-			throw new EmptyStackException("Empty Stack");
+			return null;
 		}
 		return top.getElement();
 	}
@@ -43,12 +43,31 @@ public class NodeStack<E> implements Stack<E> {
 	public E pop() throws EmptyStackException {
 		// TODO Auto-generated method stub
 		if (isEmpty()) {
-			throw new EmptyStackException("Empty Stack");
+			return null;
 		}
 		E element = top.getElement();
 		top = top.getNext();
 		size--;
 		return element;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String s = "[";
+		Node current = top;
+		if (current != null) {
+			s += current.getElement();
+			current = current.getNext();
+			while (current != null) {
+				s += ",";
+				s += current.getElement();
+				current = current.getNext();
+			}
+		}
+
+		s += "]";
+		return s;
 	}
 
 }
